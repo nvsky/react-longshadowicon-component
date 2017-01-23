@@ -1,0 +1,170 @@
+@prefixCls:rc-lsi;
+
+#long-shadow {
+    .inline(@color: #CCCCCC, @angle: 45, @size: 10, @flag: 1, @temp: "") when (@size > 0) {
+        @angle360: @angle * (pi() / 180);
+        @x: round(@flag * cos(@angle360));
+        @y: round(@flag * sin(@angle360));
+        @shadow: ~"@{x}px @{y}px 0px @{color}";
+        @close: ~"@{shadow}, @{temp}";
+        @alltogether: ~"@{close} 0px 0px 0px @{color}";
+
+        .loop(@string, @index) when (@index < 1) {
+            text-shadow: @string;
+        }
+
+        .loop(@alltogether, @size - 1);
+        .inline(@color, @angle, @size - 1,@flag + 1, @close);
+    }
+
+    .block(@color: #CCCCCC, @angle: 45, @size: 10, @prefix: 1, @flag: 1, @temp: "") when (@size > 0) {
+        @angle360: @angle * (pi() / 180);
+        @x: round(@flag * cos(@angle360));
+        @y: round(@flag * sin(@angle360));
+        @shadow: ~"@{x}px @{y}px 0px @{color}";
+        @close: ~"@{shadow}, @{temp}";
+        @alltogether: ~"@{close} 0px 0px 0px @{color}";
+
+        .loop(@string, @index) when (@index < 1) {
+            box-shadow: @string;
+        }
+
+        .loopPrefix(@string, @index) when (@index < 1) and (@prefix > 0) {
+            -webkit-box-shadow: @string;
+               -moz-box-shadow: @string;
+        }
+
+        .loop(@alltogether, @size - 1);
+        .loopPrefix(@alltogether, @size - 1);
+        .block(@color, @angle, @size - 1, @prefix, @flag + 1, @close);
+    }
+
+    .svg(@color: #CCCCCC, @angle: 45, @size: 10, @prefix: 1, @flag: 1, @temp: "") when (@size > 0) {
+        @angle360: @angle * (pi() / 180);
+        @x: round(@flag * cos(@angle360));
+        @y: round(@flag * sin(@angle360));
+        @shadow: ~"@{x}px @{y}px 0px @{color}";
+        @close: ~"@{shadow}) drop-shadow(@{temp}";
+        @alltogether: ~"drop-shadow(@{close} 0px 0px 0px @{color})";
+
+        .loop(@string, @index) when (@index < 1) {
+            filter: @string;
+        }
+
+        .loopPrefix(@string, @index) when (@index < 1) and (@prefix > 0) {
+            -webkit-filter: @string;
+        }
+
+        .loop(@alltogether, @size - 1);
+        .loopPrefix(@alltogether, @size - 1);
+        .svg(@color, @angle, @size - 1, @prefix, @flag + 1, @close);
+    }
+}
+
+// Text-shadow
+.longShadow(@color, @size, @spread: 100, @flag: 1, @tmp: '') when (@size > 0) {
+  @percent: round(@flag / @size * 100) * @spread;
+  @shadowColor: fade(@color, @percent);
+  @shadow: ~"@{size}px @{size}px 1px @{shadowColor}";
+  @ends: ~"@{shadow}, @{tmp}";
+  @shadowString: ~"@{ends} 0px 0px 1px #000";
+
+  .longShadowLoop(@string, @index) when (@index < 1) {
+    text-shadow: @string;
+  }
+
+  .longShadowLoop(@shadowString, @size - 1);
+  .longShadow(@color, @size - 1, @spread, @flag + 1, @ends);
+}
+
+// Box-shadow
+.longShadowBox(@color, @size, @max, @min, @flag: 1, @tmp: '') when (@size > 0) {
+    // Forgiving max/min ;)
+    @diff: max((@max - @min), (@min - @max));
+    @percent: @max - ((round(@size / @flag * 100) / 100) * @diff);
+    @shadowColor: fade(@color, @percent);
+    @shadow: ~"@{size}px @{size}px 0 0 @{shadowColor}";
+    @ends: ~"@{shadow}, @{tmp}";
+    @shadowString: ~"@{ends} 0px 0px 0 0 #000";
+
+    .longShadowLoop(@string, @index) when (@index < 1) {
+        -webkit-box-shadow: @string;
+        -moz-box-shadow: @string;
+        box-shadow: @string;
+
+    }
+    opacity:0.5;
+    // background-image:linear-gradient(1deg, #ffffff 37%, #e5e5e5 87%);
+    .longShadowLoop(@shadowString, @size - 1);
+    .longShadowBox(@color, @size - 1, @max, @min, @flag + 1, @ends);
+}
+
+// ............................................................
+// .for
+
+.for(@i, @n) {.-each(@i)}
+.for(@n)     when (isnumber(@n)) {.for(1, @n)}
+.for(@i, @n) when not (@i = @n)  {
+    .for((@i + (@n - @i) / abs(@n - @i)), @n);
+}
+// ............................................................
+// .for-each
+.for(@array)   when (default()) {.for-impl_(length(@array))}
+.for-impl_(@i) when (@i > 1)    {.for-impl_((@i - 1))}
+.for-impl_(@i) when (@i > 0)    {.-each(extract(@array, @i))}
+
+.long-shadow(@type, @color, @length, @fadeout: true, @scew: false, @direction: right) {
+    .-() {
+        @dir:  1px;
+        @offset: 0;
+        @s: .5px * @i;
+        @a: 1 - @i / @length;
+        @c: fade(@color, 100% * alpha(@color) * @a * @a);
+    }
+    .-() when (@direction = left) {@dir: -1px}
+    .-() when (@type = box)       {@offset: 1}
+    .-() when (@scew = false)     {@s: ;}
+    .-() when (@type = text)      {@s: ;}
+    .-() when (@fadeout = false)  {@c: @color}
+
+    .for(0, @length - 1); .-each(@i) {
+        .-();
+        @x: @dir * (@i + @offset);
+        @y: 1px  * (@i + @offset);
+        @{type}-shadow+: @x @y 0 @s @c;
+    }
+}
+@backcolor: #fefefe;
+.@{prefixCls} {
+  position:relative;
+  overflow: hidden;
+  background:#ffffff;
+  border:1px solid #f3f3f3;
+  width:73px;
+  height:73px;
+  border-radius:100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  // transform:rotate(-90deg);
+  // .long-shadow(text, darken(@color, 10%), 40);
+  // .long-shadow(text, darken(@color, 10%), 60, false);
+  &-rshadow {
+    .long-shadow(box, darken(@backcolor, 2.3%), 35,  true, false, right);
+  }
+
+  &-lshadow {
+    .long-shadow(box, darken(@backcolor, 2.3%), 35,  true, false, left);
+  }
+
+  &-ele{
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      max-width: 45px;
+      max-height: 45px;
+    }
+}
