@@ -1,11 +1,10 @@
 {
   "name": "react-longshadowicon-component",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "react long shadow icon component",
   "main": "lib/index",
   "files": [
     "lib",
-    "src",
     "assets",
     "index.js"
   ],
@@ -52,5 +51,5 @@
   "bugs": {
     "url": "https://github.com/nvsky/react-longshadowicon-component/issues"
   },
-  "homepage": "https://github.com/nvsky/react-longshadowicon-component#readme"
+  "homepage": "https://github.com/nvsky/react-longshadowicon-component#README.md"
 }
