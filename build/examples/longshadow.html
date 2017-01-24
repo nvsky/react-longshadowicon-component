@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>longshadow.js - example - react-longshadowicon-component@1.0.1</title>
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" rel="stylesheet"/>
+  <style>
+    .highlight pre {
+      padding: .8em 1em;
+      font: 14px/20px Consolas, Monaco, 'Andale Mono', monospace;
+      border: 1px solid #e5e8ec;
+      border-radius: 3px;
+      background-color: #21221d;
+      background-image: -webkit-linear-gradient(#21221d 50%, #272822 50%);
+      background-image: -moz-linear-gradient(#21221d 50%, #272822 50%);
+      background-image: -ms-linear-gradient(#21221d 50%, #272822 50%);
+      background-image: -o-linear-gradient(#21221d 50%, #272822 50%);
+      background-image: linear-gradient(#21221d 50%, #272822 50%);
+      background-size: 40px 40px;
+      background-origin: content-box;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .highlight pre > code {
+      font-family: inherit;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      vertical-align: 2px;
+      display: block;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #E5E5C2;
+    }
+  </style>
+  <style>
+/*
+
+Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #23241f;
+  -webkit-text-size-adjust: none;
+}
+
+.hljs,
+.hljs-tag,
+.css .hljs-rule,
+.css .hljs-value,
+.aspectj .hljs-function,
+.css .hljs-function
+.hljs-preprocessor,
+.hljs-pragma {
+  color: #f8f8f2;
+}
+
+.hljs-strongemphasis,
+.hljs-strong,
+.hljs-emphasis {
+  color: #a8a8a2;
+}
+
+.hljs-bullet,
+.hljs-blockquote,
+.hljs-horizontal_rule,
+.hljs-number,
+.hljs-regexp,
+.alias .hljs-keyword,
+.hljs-literal,
+.hljs-hexcolor {
+  color: #ae81ff;
+}
+
+.hljs-code,
+.hljs-title,
+.css .hljs-class,
+.hljs-class .hljs-title:last-child {
+  color: #a6e22e;
+  /*color: #e6db74;*/
+}
+
+.hljs-link_url {
+  font-size: 80%;
+}
+
+.hljs-strong,
+.hljs-strongemphasis {
+  font-weight: bold;
+}
+
+.hljs-emphasis,
+.hljs-strongemphasis,
+.hljs-class .hljs-title:last-child,
+.hljs-typename {
+  font-style: italic;
+}
+
+.hljs-keyword,
+.ruby .hljs-class .hljs-keyword:first-child,
+.ruby .hljs-function .hljs-keyword,
+.hljs-function,
+.hljs-change,
+.hljs-winutils,
+.hljs-flow,
+.nginx .hljs-title,
+.tex .hljs-special,
+.hljs-header,
+.hljs-symbol,
+.hljs-symbol .hljs-string,
+.hljs-tag .hljs-title,
+.hljs-value,
+.alias .hljs-keyword:first-child,
+.css .hljs-tag,
+.css .unit,
+.css .hljs-important {
+  color: #f92672;
+}
+
+.hljs-function .hljs-keyword,
+.hljs-class .hljs-keyword:first-child,
+.hljs-aspect .hljs-keyword:first-child,
+.hljs-constant,
+.hljs-typename,
+.hljs-name,
+.css .hljs-attribute {
+  color: #66d9ef;
+}
+
+.hljs-variable,
+.hljs-params,
+.hljs-class .hljs-title,
+.hljs-aspect .hljs-title {
+  color: #f8f8f2;
+}
+
+.hljs-tag .hljs-value,
+.hljs-string,
+.css .hljs-id,
+.hljs-subst,
+.hljs-type,
+.ruby .hljs-class .hljs-parent,
+.django .hljs-template_tag,
+.django .hljs-variable,
+.smalltalk .hljs-class,
+.django .hljs-filter .hljs-argument,
+.smalltalk .hljs-localvars,
+.smalltalk .hljs-array,
+.hljs-attr_selector,
+.hljs-pseudo,
+.hljs-addition,
+.hljs-stream,
+.hljs-envvar,
+.apache .hljs-tag,
+.apache .hljs-cbracket,
+.tex .hljs-command,
+.hljs-prompt,
+.hljs-link_label,
+.hljs-link_url {
+  color: #e6db74;
+}
+
+.hljs-comment,
+.hljs-annotation,
+.hljs-decorator,
+.hljs-pi,
+.hljs-doctype,
+.hljs-deletion,
+.hljs-shebang,
+.apache .hljs-sqbracket,
+.tex .hljs-formula {
+  color: #75715e;
+}
+
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata,
+.xml .php,
+.php .xml {
+  opacity: 0.5;
+}
+/***********/
+.hljs-attribute{
+  color: #a6e22e;
+}
+/***** node keyword ******/
+.hljs-built_in{
+  color: #3396dc;
+  font-weight: bold;
+}
+  </style>
+  <style>
+    .container {
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .header p {
+      color: #666;
+    }
+
+    .example {
+      padding: 20px 0;
+    }
+  </style>
+
+  <script>
+    // Console-polyfill. MIT license.
+    // https://github.com/paulmillr/console-polyfill
+    // Make it safe to do console.log() always.
+    (function (global) {
+      'use strict';
+      global.console = global.console || {};
+      var con = global.console;
+      var prop, method;
+      var empty = {};
+      var dummy = function () {
+      };
+      var properties = 'memory'.split(',');
+      var methods = ('assert,clear,count,debug,dir,dirxml,error,exception,group,' +
+      'groupCollapsed,groupEnd,info,log,markTimeline,profile,profiles,profileEnd,' +
+      'show,table,time,timeEnd,timeline,timelineEnd,timeStamp,trace,warn').split(',');
+      while (prop = properties.pop()) con[prop] = con[prop] || empty;
+      while (method = methods.pop()) con[method] = con[method] || dummy;
+    })(typeof window === 'undefined' ? this : window);
+    // Using `this` for web workers while maintaining compatibility with browser
+    // targeted script loaders such as Browserify or Webpack where the only way to
+    // get to the global object is via `window`.
+  </script>
+  <!--[if lt IE 9]>
+  <script src="https://a.alipayobjects.com/??es5-shim/4.0.5/es5-shim.js,es5-shim/4.0.5/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="longshadow.css" />
+</head>
+
+<body>
+<div class="container">
+  <div class="header">
+    <h1>react-longshadowicon-component@1.0.1</h1>
+
+    <p>react long shadow icon component</p>
+  </div>
+  <div class="example" id="__react-content"></div>
+  <script src="common.js?nowrap"></script>
+  <script src="longshadow.js?nowrap"></script>
+  <div class="highlight"><pre><code language="js"><span class="hljs-built_in">require</span>(<span class="hljs-string">'../assets/index.less'</span>);
+<span class="hljs-keyword">const</span> React = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react'</span>);
+<span class="hljs-keyword">const</span> ReactDOM = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react-dom'</span>);
+<span class="hljs-keyword">const</span> LongShadowIcon = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react-longshadowicon-component'</span>);
+
+<span class="hljs-keyword">const</span> Test = React.createClass({
+  getCode(phoneValue) {
+    <span class="hljs-built_in">console</span>.log(phoneValue);
+  },
+  getLogin(phoneValue, codeValue) {
+    <span class="hljs-built_in">console</span>.log(phoneValue+<span class="hljs-string">'#'</span>+codeValue);
+  },
+  render() {
+    <span class="hljs-keyword">return</span> (<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{margin:</span> <span class="hljs-attribute">100</span>}}&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">LongShadowIcon</span> <span class="hljs-attribute">lOr</span>=<span class="hljs-value">"right"</span> <span class="hljs-attribute">boxSize</span>=<span class="hljs-value">"180"</span> <span class="hljs-attribute">maxContent</span>=<span class="hljs-value">"290"</span> <span class="hljs-attribute">iconUrl</span>=<span class="hljs-value">"data:image/jpeg;base64,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"</span> /&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-title">LongShadowIcon</span> <span class="hljs-attribute">iconUrl</span>=<span class="hljs-value">"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTlcnvKtoGPpd4_9HoH1k-HTkNI7gOQ1_F23tti6DagOcUpu7GgaQ"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>);
+  },
+});
+
+ReactDOM.render(<span class="hljs-tag">&lt;<span class="hljs-title">Test</span> /&gt;</span>, document.getElementById('__react-content'));
+</span></code></pre></div>
+</div>
+<a href="https://github.com/nvsky/react-longshadowicon-component#readme">
+  <img style="position: absolute; top: 0; right: 0; border: 0;"
+       src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
+       alt="Fork me on GitHub"
+       data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+</a>
+</body>
+
+</html>
