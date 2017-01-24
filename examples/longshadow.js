@@ -19760,29 +19760,22 @@ webpackJsonp([0,1],[
 
 	'use strict';
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 	
-	var _react = __webpack_require__(3);
+	var React = __webpack_require__(3);
+	var classNames = __webpack_require__(164);
 	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _classnames = __webpack_require__(164);
-	
-	var _classnames2 = _interopRequireDefault(_classnames);
-	
-	var Login = _react2['default'].createClass({
+	var Login = React.createClass({
 	  displayName: 'Login',
 	
 	  propTypes: {
-	    prefixCls: _react2['default'].PropTypes.string,
-	    lOr: _react2['default'].PropTypes.string,
-	    boxSize: _react2['default'].PropTypes.number,
-	    maxContent: _react2['default'].PropTypes.number,
-	    iconUrl: _react2['default'].PropTypes.string
+	    prefixCls: React.PropTypes.string,
+	    lOr: React.PropTypes.string,
+	    boxSize: React.PropTypes.number,
+	    maxContent: React.PropTypes.number,
+	    iconUrl: React.PropTypes.string
 	  },
 	  getDefaultProps: function getDefaultProps() {
 	    return {
@@ -19801,11 +19794,11 @@ webpackJsonp([0,1],[
 	
 	    var restProps = _objectWithoutProperties(_props, ['prefixCls']);
 	
-	    var seccondInput = (0, _classnames2['default'])((_classNames = {}, _defineProperty(_classNames, '' + prefixCls, true), _defineProperty(_classNames, prefixCls + '-rshadow', restProps.lOr == 'right' ? true : false), _defineProperty(_classNames, prefixCls + '-lshadow', restProps.lOr == 'left' ? true : false), _classNames));
-	    return _react2['default'].createElement(
+	    var seccondInput = classNames((_classNames = {}, _defineProperty(_classNames, '' + prefixCls, true), _defineProperty(_classNames, prefixCls + '-rshadow', restProps.lOr == 'right' ? true : false), _defineProperty(_classNames, prefixCls + '-lshadow', restProps.lOr == 'left' ? true : false), _classNames));
+	    return React.createElement(
 	      'div',
 	      { className: seccondInput, style: { width: restProps.boxSize + 'px', height: restProps.boxSize + 'px' } },
-	      _react2['default'].createElement('img', { className: prefixCls + '-ele', style: { "max-width": restProps.maxContent + 'px', "max-height": restProps.maxContent + 'px' }, src: restProps.iconUrl })
+	      React.createElement('img', { className: prefixCls + '-ele', style: { "max-width": restProps.maxContent + 'px', "max-height": restProps.maxContent + 'px' }, src: restProps.iconUrl })
 	    );
 	  }
 	});
