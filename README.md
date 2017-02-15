@@ -52,13 +52,13 @@ React.render(<LongShadowIcon />, container);
         </tr>
         <tr>
           <td>boxSize</td>
-          <td>String</td>
+          <td>Number</td>
           <td>73</td>
           <td>The value is component content size</td>
         </tr>
         <tr>
           <td>maxContent</td>
-          <td>String</td>
+          <td>Number</td>
           <td>45</td>
           <td>The value is component context max size</td>
         </tr>
