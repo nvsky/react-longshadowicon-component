@@ -19751,7 +19751,7 @@ webpackJsonp([0,1],[
 
 	'use strict';
 	
-	__webpack_require__(2);
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../assets/index.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	module.exports = __webpack_require__(163);
 
 /***/ },
@@ -19767,8 +19767,8 @@ webpackJsonp([0,1],[
 	var React = __webpack_require__(3);
 	var classNames = __webpack_require__(164);
 	
-	var Login = React.createClass({
-	  displayName: 'Login',
+	var LongShadow = React.createClass({
+	  displayName: 'LongShadow',
 	
 	  propTypes: {
 	    prefixCls: React.PropTypes.string,
@@ -19803,7 +19803,7 @@ webpackJsonp([0,1],[
 	  }
 	});
 	
-	module.exports = Login;
+	module.exports = LongShadow;
 
 /***/ },
 /* 164 */
