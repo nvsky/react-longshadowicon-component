@@ -30,7 +30,7 @@ const LongShadow = React.createClass({
     });
     return (
       <div className={seccondInput} style={{width: `${restProps.boxSize}px`, height: `${restProps.boxSize}px`}}  >
-        <img className={`${prefixCls}-ele`} style={{"max-width": `${restProps.maxContent}px`, "max-height": `${restProps.maxContent}px`}} src={restProps.iconUrl} />
+        <img className={`${prefixCls}-ele`} style={{"maxWidth": `${restProps.maxContent}px`, "maxHeight": `${restProps.maxContent}px`}} src={restProps.iconUrl} />
       </div>
     );
   },
