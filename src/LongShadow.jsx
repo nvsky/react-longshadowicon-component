@@ -1,7 +1,7 @@
 const React = require('react');
 const classNames = require('classnames');
 
-const Login = React.createClass({
+const LongShadow = React.createClass({
   propTypes: {
     prefixCls: React.PropTypes.string,
     lOr: React.PropTypes.string,
@@ -36,4 +36,4 @@ const Login = React.createClass({
   },
 });
 
-module.exports = Login;
+module.exports = LongShadow;
